@@ -1,0 +1,25 @@
+name: test actividad
+on:
+push:
+# Ejecutar la acción al hacer un push a la rama "main"
+pull_request:
+# Ejecutar la acción al hacer un push a la rama "main"
+branches: [ main, development, feature-code ]
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+    uses: actions/checkout@v4
+
+    - name: Set up Node.js 20
+    uses: actions/setup-node@v4
+    with:
+      node-version: '20'
+      cache: 'npm'
+
+    - name: Install dependencies (lockfile)
+    run: npm ci
+
+    - name: Run tests
+    run: npm test
