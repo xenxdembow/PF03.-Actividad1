@@ -16,3 +16,7 @@ function fibonacci(numb) {
     }
     return max;
 }
+
+export{
+    fibonacci
+}
