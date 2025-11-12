@@ -9,18 +9,20 @@ function fibonacci(n) {
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-function esPinValido(pin) {
+export function esPinValido(pin) {
     if (pin === null || pin === undefined) return false;
   
     const str = String(pin);
   
-    if (str.length >= 4 && str.length !== 6) return false;
-
+    if (str.length !== 4 && str.length !== 6) return false;
+  
+    // Comprobar que todos los caracteres sean dígitos
     for (let i = 0; i < str.length; i++) {
       const c = str[i];
       if (c < '0' || c > '9') return false;
     }
-
+  
+    // Comprobar que no todos los dígitos sean iguales
     const primero = str[0];
     let todosIguales = true;
     for (let i = 1; i < str.length; i++) {
@@ -32,7 +34,7 @@ function esPinValido(pin) {
     if (todosIguales) return false;
   
     return true;
-  }
+}
 
 export{
     fibonacci,
