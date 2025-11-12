@@ -13,28 +13,15 @@ export function esPinValido(pin) {
     if (pin === null || pin === undefined) return false;
   
     const str = String(pin);
-  
+
     if (str.length !== 4 && str.length !== 6) return false;
-  
-    // Comprobar que todos los caracteres sean dígitos
-    for (let i = 0; i < str.length; i++) {
-      const c = str[i];
-      if (c < '0' || c > '9') return false;
-    }
-  
-    // Comprobar que no todos los dígitos sean iguales
-    const primero = str[0];
-    let todosIguales = true;
-    for (let i = 1; i < str.length; i++) {
-      if (str[i] !== primero) {
-        todosIguales = false;
-        break;
-      }
-    }
-    if (todosIguales) return false;
+
+    if (!/^\d+$/.test(str)) return false;
+
+    if (/^(\d)\1+$/.test(str)) return false;
   
     return true;
-}
+  }
 
 export{
     fibonacci,
