@@ -9,7 +9,7 @@ function fibonacci(numb) {
     let min = 0; 
     let max = 1; 
 
-    for (let i = 2; i < numb; i++) {
+    for (let i = 2; i <= numb; i++) {
         let act = min + max;
         min = max;
         max = act;
