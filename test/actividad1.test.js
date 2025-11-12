@@ -1,4 +1,5 @@
-const { fibonacci } = require('../src/actividad1');
+import { describe, test, expect } from 'vitest';
+import { fibonacci } from '../src/actividad1';
 
 describe('Función fibonacci', () => {
   test('debe devolver 0 cuando n es 0', () => {
